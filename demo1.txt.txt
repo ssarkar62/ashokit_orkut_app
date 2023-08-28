@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 hello baba
+=======
+hello laxmi
+>>>>>>> parent of ad760b3 (demo1 modified)
