@@ -1,0 +1,4 @@
+h2 db url : http://localhost:8080/h2-console
+
+url : http://localhost:8080/
+
