@@ -1,0 +1,55 @@
+h2 db url : http://localhost:8080/h2-console
+
+url : http://localhost:8080/
+ide specification:
+====================
+>sts 4.19.0 RELEASE
+>java 17
+
+
+what is the thymeleaf first project date ?????
+	8-sept-1 h:10min >1st project
+		http://localhost:8080/h2-console
+
+shortcut to write return statement 
+	ctrl 1(one) and then enter.
+>9 sept > controller and ui of 1st project
+> 12 sept >>>>>>>>18 min is important concept
+> 13 sept >>>>>>>>>imp issues. of first project
+		1>issue > empty field is also submitting > so added required field in client side
+		2>issue > after editing the record > dob is not pre-populating.
+		3>issue > for every request , a seperate model object is created.
+		so after adding msg is model object , that msg is not showing in ui
+		coz ,we are redirecting our request .
+		that's why we should use "forward " instead of "redirect".
+		>when request is redirecting from one method to another method , 
+		the @ModelAttribute concept will not work.
+
+> so now when we delete a record , then >table updating > means "forward is workin
+and "User Record Deleted" msg is showing means > Model object is also working.
+
+>issue > double posting problem > after form is submitted > user record is still 
+there in UI page , >so there may occur a double posting problem.
+that's why > after saving the user data > forward the page to an empty page.
+
+"forward" will also not work coz , post and get request pbm.
+and if we use "redirect" > then success msg will not come. 
+
+
+complex issue : 1 h:1 min.>17 aug. >first analysis is wrong,
+user.setActiveSw("Y"); in /save-user class
+
+>issue> saving and then edit modify to "activate" and again save then
+		automatically status is changing to "De-Activate" status .
+that's coz in "Entity" class we are giving the default status switch as "Y" .
+>so to fix this > we remove the default value from Entity class and
+					At first time saving , we are saving the value as "Y".
+					when we are updating the record ,we are not setting anything.
+
+>so set the user record as "Y" when we are inserting the user record.
+so conditionally we need to set whether our record is active or inactive.
+so first time set it as "Y" second time as hidden variable.
+
+java debugging is available in ashokit youtube
+and also eclipse shortcut also present in youtube.
+UnitTesting also present in youtube >ashokit.
