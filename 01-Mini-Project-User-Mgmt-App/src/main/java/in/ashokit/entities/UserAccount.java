@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,11 +24,14 @@ public class UserAccount {
     
     private String gender;
     
+    //UI and java both the date time format is different 
+    //and also after editing the form it's date is not coming in form that's why
+    @DateTimeFormat(pattern = "yyy-MM-dd")
     private LocalDate dob;
     
     private Long ssn;
     
-    private String activeSw="Y";
+    private String activeSw;
     
     @CreationTimestamp
     private LocalDate createDate;

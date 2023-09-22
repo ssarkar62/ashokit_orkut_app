@@ -18,58 +18,71 @@ public class UserAccountController {
 
 	@Autowired
 	private UserAccountService service;
-	
+
 	@GetMapping("/")
-	public String index(Model model)
-	{
+	public String index(Model model) {
 //sending one empty user object to map our form to user data
-		//33.48
-		model.addAttribute("user",new UserAccount());
-		
+		// 33.48
+		model.addAttribute("user", new UserAccount());
+
 		return "index";
 	}
+
 	@PostMapping("/save-user")
 	public String handleSubmitBtn(@ModelAttribute("user") UserAccount user, Model model) {
 		
 		String msg = service.saveOrUpdateUserAcc(user);
-		
-		model.addAttribute("msg",msg);
-		
-	
+
+		model.addAttribute("msg", msg);
+		// 13 sept -37 min//here we are sending empty binding object
+		// so after submitting the form , ui record should be removed.
+		model.addAttribute("user", new UserAccount());
+
+		// return "redirect:/users";
 		return "index";
 	}
+
 	@GetMapping("/users")
 	public String getUsers(Model model) {
-		
+
 		List<UserAccount> userList = service.getAllUserAccounts();
-		
+
 		model.addAttribute("users", userList);
-		
+
 		return "view-users";
 	}
+
 	@GetMapping("/edit")
-	public String editUser(@RequestParam("id") Integer id , Model model) {
-		
+	public String editUser(@RequestParam("id") Integer id, Model model) {
+
 		UserAccount userAcc = service.getUserAcc(id);
-		
-		model.addAttribute("user" , userAcc);
-		
+
+		model.addAttribute("user", userAcc);
+
 		return "index";
-	
+
 	}
+
 	@GetMapping("/delete")
-	public String deleteUser(@RequestParam("id")Integer uid)
-	{
+	public String deleteUser(@RequestParam("id") Integer uid, Model model) {
 		boolean deleteUserAcc = service.deleteUserAcc(uid);
-		
-		
-		return "redirect:/users";
+
+		model.addAttribute("msg", "user record deleted");
+
+		return "forward:/users";
 	}
+
 	@GetMapping("/update")
-	public String statusUpdate(@RequestParam("id")Integer uid , @RequestParam("status") String status)
-	{
-		System.out.println("Controller -inside statusUpdate method: userid"+uid+"status"+status);
+	public String statusUpdate(@RequestParam("id") Integer uid, @RequestParam("status") String status, Model model) {
+		System.out.println("Controller -inside statusUpdate method: userid" + uid + "status" + status);
 		service.updateUserAccStatus(uid, status);
-		return "redirect:/users";
+
+		if ("Y".equals(status)) {
+			model.addAttribute("msg", "User Account Activated");
+		} else {
+			model.addAttribute("msg", "User Account De-Activated");
+		}
+
+		return "forward:/users";
 	}
 }

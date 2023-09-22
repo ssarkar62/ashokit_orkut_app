@@ -37,28 +37,28 @@
 		<table>
 			<tr>
 			<td>Fullname</td>
-			<td><input type="text" th:field="*{fullName}"/></td>
+			<td><input type="text" th:field="*{fullName}" required/></td>
 			<input type="hidden" th:field="*{userid}"/>
 			</tr>
 			<tr>
 			<td>Email</td>
-			<td><input type="text" th:field="*{email}"/></td>
+			<td><input type="text" th:field="*{email}" required/></td>
 			</tr>
 			<tr>
 			<td>Phno : </td>
-			<td><input type="text" th:field="*{phno}"/></td>
+			<td><input type="text" th:field="*{phno}" required/></td>
 			</tr>
 			<tr>
 			<td>SSN : </td>
-			<td><input type="text" th:field="*{ssn}"/></td>
+			<td><input type="text" th:field="*{ssn}" /></td>
 			</tr>
 			<tr>
 			<td>DOB</td>
-			<td><input type="date" th:field="*{dob}"/></td>
+			<td><input type="date" th:field="*{dob}" /></td>
 			</tr>
 			<tr>
 			<td>Gender : </td>
-			<td><input type="radio" th:field="*{gender}" value="M"/>Male
+			<td><input type="radio" th:field="*{gender}" value="M" />Male
 			<input type="radio" th:field="*{gender}" value="F"/>Female</td>
 			</tr>
 			

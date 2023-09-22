@@ -30,6 +30,9 @@
     
     <div class="container mt-5">
 	<h1> View Users</h1>
+	
+	<p th:text="${msg}" class="text-success"></p>
+	
 	<table class="table table-bordered table-striped" >
 		<thead>
 			<tr>
@@ -67,6 +70,11 @@
 				
 				
 			</tr>
+			<div th:if="${users==null or users.isEmpty()}">
+				<tr>
+					<td colspan="9" align="center" class="text-danger">No Records Found !</td>
+				</tr>
+			</div>
 		</tbody>
 	</table>
 	
