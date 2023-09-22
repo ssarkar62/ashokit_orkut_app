@@ -19,6 +19,14 @@ public class UserAccountServiceImpl implements UserAccountService {
 	public String saveOrUpdateUserAcc(UserAccount userAcc) {
 
 		Integer userId = userAcc.getUserid(); // UPSERT (insert or update)
+		
+		//issue->for active and inactive problem.
+		if(userId == null)
+		{
+			userAcc.setActiveSw("Y");
+		}
+		
+		
 		userAccRepo.save(userAcc);
 
 		if (userId == null) {
