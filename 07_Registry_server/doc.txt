@@ -1,0 +1,6 @@
+zipkin server :
+=================
+>no need to create springboot application for zipkin server,
+	just download the zipkin jar , and run in cmd prompt
+		and then browse the url 
+	http://localhost:9411
