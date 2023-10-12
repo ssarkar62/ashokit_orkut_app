@@ -1,0 +1,25 @@
+server:
+  port: 9091
+  
+spring:
+  application:
+    name: GREET-API
+   
+   #register this app with admin server as a client 
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:1111/
+        
+        #eureka server registration not mandatory
+        #coz default port and same machine.
+ 
+ #now configure actuator endpoint
+ 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'

@@ -1,0 +1,29 @@
+#server:
+#  port: 8081
+
+#if we don't give the name ,then name will be considered as UNKNOWN.
+spring:
+  application:
+    name: WELCOME-API
+  
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:1111/
+  
+  #if eureka server port number is other then 8761 then enable below this.      
+#eureka:
+  #client:
+    #service-url:
+      #defaultZone: http://localhost:8761/eureka
+ 
+ 
+  #actuator end point-i want to expose all the actuator endpoint   
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
+         
